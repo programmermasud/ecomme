@@ -1,0 +1,50 @@
+{% extends 'management/base.html' %}
+{% block style %}
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>HTML Table</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Created_at</th>
+            <th>Activtis</th>
+        </tr>
+        {% for contacts in  contacts %}
+        <tr>
+            <td>{{ contacts.name }}</td>
+            <td>{{ contacts.age }}</td>
+            <td>{{ contacts.phone }}</td>
+            <td>{{ contacts.address }}</td>
+            <td>{{ contacts.created_at }}</td>
+            <td>{{ contacts.is_active }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
