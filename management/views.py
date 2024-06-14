@@ -32,6 +32,16 @@ def contacts(request):
 
     return render(request, 'management/contacts.html',context)
 
+def details(request, id):
+
+    detail = Contact.objects.get(id=id)
+
+    context = {
+        'detail': detail
+    }
+
+    return render(request,'management/details.html',context)
+
 
 def about(request):
 
