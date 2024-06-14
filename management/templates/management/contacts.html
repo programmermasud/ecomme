@@ -1,30 +1,8 @@
 {% extends 'management/base.html' %}
-{% block style %}
-
-<style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-    </style>
-
-{% endblock %}
-
 
 {% block content %}
 
-    <h2>HTML Table</h2>
+    <h2 class="btn btn-success" >Contacts Page</h2>
 
     <table>
         <tr>
@@ -37,7 +15,7 @@
         </tr>
         {% for contacts in  contacts %}
         <tr>
-            <td>{{ contacts.name }}</td>
+            <td> <a href="{% url 'details' contacts.id %}">{{ contacts.name }}</td></a> 
             <td>{{ contacts.age }}</td>
             <td>{{ contacts.phone }}</td>
             <td>{{ contacts.address }}</td>
