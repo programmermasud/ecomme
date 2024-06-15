@@ -5,7 +5,7 @@ from .models import *
 # Create your views here.
 
 
-def home(request):
+def Home(request):
 
     # List of dictionaries containing information about people
     people = [
