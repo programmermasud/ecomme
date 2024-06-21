@@ -48,3 +48,5 @@ def about(request):
     return render(request, 'management/about.html')
 
 
+def test(request):
+    HttpResponse("test")
