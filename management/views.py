@@ -34,7 +34,10 @@ def contacts(request):
 
 def details(request, id):
 
-    detail = Contact.objects.get(id=id)
+    try:
+        detail = Contact.objects.get(id=id)
+    except Contact.DoesNotExist:
+        pass
 
     context = {
         'detail': detail
