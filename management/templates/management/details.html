@@ -1,0 +1,44 @@
+{% extends 'management/base.html' %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+    {% if detail %}
+        <div class="container">
+            <!-- User Details Card -->
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class=" btn btn-info mt-3">User Details</h2>
+                </div>
+                <div class="card-body">
+                    <!-- Basic Information -->
+                    <div class="row mb-3">
+                        <div class="col-4 font-weight-bold">Name:</div>
+                        <div class="col-8">{{ detail.name }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 font-weight-bold">Age:</div>
+                        <div class="col-8">{{ detail.age }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 font-weight-bold">Phone:</div>
+                        <div class="col-8"> {{ detail.phone }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 font-weight-bold">Address:</div>
+                        <div class="col-8">{{ detail.address }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 font-weight-bold">Created At:</div>
+                        <div class="col-8">{{ detail.created_at }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <a href="{% url 'contacts' %}" class="btn btn-primary">Back to contact page</a>
+            </div>
+        </div>
+    {% else %}
+    <h3>Page Not Found</h3>
+    {% endif %}
+{% endblock %}

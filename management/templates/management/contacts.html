@@ -1,0 +1,33 @@
+{% extends 'management/base.html' %}
+
+{% block content %}
+
+    <h2 class="btn btn-success" >Contacts Page</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Created_at</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for contacts in  contacts %}
+        <tr>
+            <td> <a href="{% url 'details' contacts.id %}">{{ contacts.name }}</td></a> 
+            <td>{{ contacts.age }}</td>
+            <td>{{ contacts.phone }}</td>
+            <td>{{ contacts.address }}</td>
+            <td>{{ contacts.created_at }}</td>
+            <td type="button" class="btn btn-primary">Edit</td>
+            <td type="button" class="btn btn-danger">Delete</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <a class="btn btn-primary mb-3" href="{% url 'Home' %}">Home</a>
+
+
+{% endblock %}
