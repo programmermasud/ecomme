@@ -1,0 +1,34 @@
+{% extends 'management/base.html' %}
+{% block content %}
+
+<h3>Add Product</h3>
+
+{% if messages %}
+{% include 'management/message.html' %}
+{% endif %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <p>Catagory:</p>
+    <select name="catagory_id" id="">
+        <option value="">Select Catagory</option>
+        {% for catagory in catagory %}
+        <option value="{{ catagory.id }}">{{ catagory.name }}</option>
+        {% endfor %}
+    </select><br>
+
+
+    <label>Name:</label><br>
+    <input type="text" name="name" placeholder="product name"><br>
+    <label>Price:</label><br>
+    <input type="number" name="price" placeholder="product price"><br>
+    <label>Decription:</label><br>
+    <input type="text" name="decription" placeholder="product decription"><br><br>
+    <input type="reset" class="btn btn-danger" value="Reset">
+    <input type="submit" class="btn btn-primary" value="SUBMIT">
+    
+</form> 
+  
+
+{% endblock %}

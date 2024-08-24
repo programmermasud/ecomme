@@ -1,0 +1,26 @@
+{% extends 'management/base.html' %}
+{% block content %}
+
+<h3>Add Contact</h3>
+
+{% if messages %}
+{% include 'management/message.html' %}
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <label>Name:</label><br>
+    <input type="text" name="name" placeholder="your name"><br>
+    <label>Age:</label><br>
+    <input type="number" name="age" placeholder="your age"><br>
+    <label>Phone:</label><br>
+    <input type="number" name="phone" placeholder="your phone"><br>
+    <label>Address:</label><br>
+    <input type="text" name="address" placeholder="your address"><br><br>
+    <input type="reset" class="btn btn-danger" value="Reset">
+    <input type="submit" class="btn btn-primary" value="Add">
+    
+</form> 
+  
+
+{% endblock %}

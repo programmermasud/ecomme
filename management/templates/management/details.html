@@ -1,9 +1,6 @@
 {% extends 'management/base.html' %}
-{% block style %}
-
-{% endblock %}
 {% block content %}
-    {% if detail %}
+    {% if contact %}
         <div class="container">
             <!-- User Details Card -->
             <div class="card">
@@ -14,28 +11,48 @@
                     <!-- Basic Information -->
                     <div class="row mb-3">
                         <div class="col-4 font-weight-bold">Name:</div>
-                        <div class="col-8">{{ detail.name }}</div>
+                        <div class="col-8">{{ contact.name }}</div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-4 font-weight-bold">Age:</div>
-                        <div class="col-8">{{ detail.age }}</div>
+                        <div class="col-8">{{ contact.age }}</div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-4 font-weight-bold">Phone:</div>
-                        <div class="col-8"> {{ detail.phone }}</div>
+                        <div class="col-8"> {{ contact.phone }}</div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-4 font-weight-bold">Address:</div>
-                        <div class="col-8">{{ detail.address }}</div>
+                        <div class="col-8">{{ contact.address }}</div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-4 font-weight-bold">Created At:</div>
-                        <div class="col-8">{{ detail.created_at }}</div>
+                        <div class="col-8">{{ contact.created_at }}</div>
                     </div>
+                    <div class="card-header text-center">
+                        <h2 class=" btn btn-success mt-3">Family Details</h2>
+                    </div>
+                    {% for family in family %}
+                    <div class="row mb-3">
+                        <div class="col-4 font-weight-bold">Name:</div>
+                        <div class="col-8">{{ family.name }}</div>
+                    </div>
+                    <div class="row mb-3">
+                   
+                        <div class="col-4 font-weight-bold">Image:</div>
+                        {% if family.image %}
+                        <img src="{{ family.image.url }}" height="100px" width="90px" alt="">
+                        {% else %}
+                        <p>no image</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-4 font-weight-bold">Relationship:</div>
+                        <div class="col-8">{{ family.relationship }}</div>
+                    </div>
+                    {% endfor %}
                 </div>
-            </div>
-            <div class="row mb-3">
-                <a href="{% url 'contacts' %}" class="btn btn-primary">Back to contact page</a>
             </div>
         </div>
     {% else %}

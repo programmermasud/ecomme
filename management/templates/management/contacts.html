@@ -2,8 +2,19 @@
 
 {% block content %}
 
-    <h2 class="btn btn-success" >Contacts Page</h2>
+    <h2 class="btn btn-success" >Contacts Page</h2><br><br>
 
+    <form method="get" class="d-flex" role="search">
+        <input class="me-2" type="search" name="search" value="{{ request.GET.search }}"  placeholder="search by name or phone" >
+        <button class="btn btn-outline-primary" type="submit">search</button>
+    </form> <br><br>
+    {% if messages %}
+    {% include 'management/message.html' %}
+    {% endif %}
+    <h1 class="text-right">
+        <a href="{% url 'add_contact' %}" class="btn btn-primary">Add Contact</a>
+    </h1><br>
+    
     <table>
         <tr>
             <th>Name</th>
@@ -11,23 +22,28 @@
             <th>Phone</th>
             <th>Address</th>
             <th>Created_at</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Action</th>
+          
         </tr>
+    {% if contacts %}
+   
         {% for contacts in  contacts %}
         <tr>
-            <td> <a href="{% url 'details' contacts.id %}">{{ contacts.name }}</td></a> 
+            <td> <a href="{% url 'details' contacts.slug %}">{{ contacts.name }}</td></a> 
             <td>{{ contacts.age }}</td>
             <td>{{ contacts.phone }}</td>
-            <td>{{ contacts.address }}</td>
+            <td><a href="{% url 'details' contacts.id %}">{{ contacts.address }}</td></a>
             <td>{{ contacts.created_at }}</td>
-            <td type="button" class="btn btn-primary">Edit</td>
-            <td type="button" class="btn btn-danger">Delete</td>
-
+            <td>
+                <a class="btn btn-info" href="{% url 'edit-contact' contacts.id %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'delete-contact' contacts.id %}">Delete</a>
+            </td>
         </tr>
+       
         {% endfor %}
     </table>
-    <a class="btn btn-primary mb-3" href="{% url 'Home' %}">Home</a>
+    {% else %}
+    <br><br><h3>page not found</h3>
 
-
+    {% endif %}
 {% endblock %}

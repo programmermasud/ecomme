@@ -1,0 +1,45 @@
+{% extends 'management/base.html' %}
+
+{% block content %}
+
+    <h2 class="btn btn-success" >Products Page</h2><br><br>
+
+    <form method="get" class="d-flex" role="search">
+        <input class="me-2" type="search" name="search" value="{{ request.GET.search }}"  placeholder="search product" >
+        <button class="btn btn-outline-primary" type="submit">search</button>
+    </form> <br><br>
+    {% if messages %}
+    {% include 'management/message.html' %}
+    {% endif %}
+
+    <h1 class="text-right">
+        <a href="{% url 'add-products' %}" class="btn btn-primary">Add Product</a>
+    </h1><br>
+    
+    <table>
+        <tr>
+            <th>Catagory</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Decription</th>
+            <th>Created_At</th>
+            <th>Action</th>
+        </tr>
+
+        {% for product in products %}
+        <tr>
+            <td>{{ product.catagory.name }}</td>
+            <td> <a href="#">{{ product.name }}</td></a> 
+            <td>{{ product.price }}</td>
+            <td>{{ product.decription }}</td>
+            <td>{{ product.created_at }}</td>
+            <td>
+                <a class="btn btn-info" href="#">Edit</a>
+                <a class="btn btn-danger" href="#">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

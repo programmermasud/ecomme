@@ -7,5 +7,18 @@
 <a class="btn btn-primary" href="{% url 'contacts' %}" > Go To Contact Page </a>
 <a class="btn btn-info" href="{% url 'Home' %}" >Home </a>
 
+{% extends  'management/base.html' %}
+{% block content %}
+
+<h2>Hello Masud</h2>
+
+<a class="btn btn-primary" href="{% url 'contacts' %}">Contact Us</a>
+<a class="btn btn-success" href="{% url 'about' %}">About</a>
+<a class="btn btn-info" href="{% url 'products' %}">Products</a>
+<a class="btn btn-warning" href="{% url 'profile' %}">Profile</a>
+<a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+
+{% endblock %}
+
 
 {% endblock %}

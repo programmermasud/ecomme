@@ -1,0 +1,21 @@
+{% extends 'management/base.html' %}
+{% block content %}
+
+<h3>Edit Contact</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Name:</label><br>
+    <input type="text" name="name" value="{{ contact.name }}"><br>
+    <label>Age:</label><br>
+    <input type="number" name="age" value="{{ contact.age }}"><br>
+    <label>Phone:</label><br>
+    <input type="number" name="phone"  value="{{ contact.phone }}"><br>
+    <label>Address:</label><br>
+    <input type="text" name="address"  value="{{ contact.address }}"><br><br>
+    <input type="reset" class="btn btn-danger" value="Reset">
+    <input type="submit" class="btn btn-primary" value="Submit">
+    
+</form> 
+
+{% endblock %}
