@@ -39,7 +39,7 @@ def details(request, slug):
     contact = Contact.objects.filter(slug=slug).first()
     family = FamilyMember.objects.filter(contact=contact)
 
-
+    print(family)
     context = {
         'contact': contact,
         'family': family
