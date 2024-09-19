@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
@@ -25,6 +26,35 @@ def contacts(request):
     search = request.GET.get('search')
     if search:
         contacts = Contact.objects.filter( Q(name__icontains = search) | Q(phone = search))
+=======
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import *
+
+# Create your views here.
+
+
+def Home(request):
+
+    # List of dictionaries containing information about people
+    people = [
+        {"name": "Alice", "age": 30, "city": "New York"},
+        {"name": "Bob", "age": 25, "city": "Los Angeles"},
+        {"name": "Charlie", "age": 35, "city": "Chicago"}
+    ]
+
+    context = {
+        
+        'people': people
+
+    }
+
+
+    return render(request, 'management/home.html',context)
+
+def contacts(request):
+    contacts = Contact.objects.all()
+>>>>>>> 89e6b39bc8b533e9968f609499c68fb3e1d5020d
 
     context = {
         'contacts': contacts
@@ -32,6 +62,7 @@ def contacts(request):
 
     return render(request, 'management/contacts.html',context)
 
+<<<<<<< HEAD
 @login_required(login_url='sign-in')
 
 def details(request, slug):
@@ -43,16 +74,29 @@ def details(request, slug):
     context = {
         'contact': contact,
         'family': family
+=======
+def details(request, id):
+
+    detail = Contact.objects.get(id=id)
+
+    context = {
+        'detail': detail
+>>>>>>> 89e6b39bc8b533e9968f609499c68fb3e1d5020d
     }
 
     return render(request,'management/details.html',context)
 
+<<<<<<< HEAD
 @login_required(login_url='sign-in')
+=======
+
+>>>>>>> 89e6b39bc8b533e9968f609499c68fb3e1d5020d
 def about(request):
 
     return render(request, 'management/about.html')
 
 
+<<<<<<< HEAD
 @login_required(login_url='sign-in')
 def add_contact(request):
 
@@ -243,3 +287,7 @@ def logout_view(request):
     return redirect('sign-in')
 
 
+=======
+def test(request):
+    HttpResponse("test")
+>>>>>>> 89e6b39bc8b533e9968f609499c68fb3e1d5020d

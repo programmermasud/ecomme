@@ -1,9 +1,12 @@
 from django.db import models
+<<<<<<< HEAD
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+=======
+>>>>>>> 89e6b39bc8b533e9968f609499c68fb3e1d5020d
 
 # Create your models here.
 
@@ -12,7 +15,10 @@ class Contact(models.Model):
     age = models.IntegerField()
     phone = models.CharField(max_length=15)
     address = models.TextField()
+<<<<<<< HEAD
     slug = models.SlugField(blank=True, null=True)
+=======
+>>>>>>> 89e6b39bc8b533e9968f609499c68fb3e1d5020d
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -20,6 +26,7 @@ class Contact(models.Model):
     def __str__(self):
 
         return f"{self.name} | {self.phone} | {self.address}"
+<<<<<<< HEAD
     
     def save(self, *args, **kwargs):
         
@@ -79,3 +86,7 @@ class Product(models.Model):
     def __str__(self):
         
         return f"{self.catagory} | {self.name} | {self.price}"
+=======
+
+
+>>>>>>> 89e6b39bc8b533e9968f609499c68fb3e1d5020d
