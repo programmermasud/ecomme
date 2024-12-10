@@ -5,12 +5,8 @@ name = "pypi"
 
 [packages]
 django = "*"
-<<<<<<< HEAD
-pillow = "*"
-=======
->>>>>>> 89e6b39bc8b533e9968f609499c68fb3e1d5020d
 
 [dev-packages]
 
 [requires]
-python_version = "3.12"
+python_version = "3.13"
